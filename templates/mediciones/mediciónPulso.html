@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/medicion.css">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>👩‍💻Transistor | inicio </title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="/" class="texto">
+            <img class="imagen" alt="medicion de pulso cardiaco MMP " src="static/frecuencia-cardiaca.png">
+            MMP
+        </a>
+       
+        <ul>
+            {% if session.id_usuario %}
+            <li><a href="/tuto"> Tutorial</a></li>
+            <li><a href="/TablasMediciones">  Registro de Mediciones </a></li>
+            <li><a href="/medicionbase"> Nueva Medición </a></li>
+            <li><a href="/cerrar"> Cerrar Sesión </a></li>
+            {% else %}
+            <li><a href="/registro"> Registrarse </a></li>
+            <li><a href="/login">Iniciar Sesión </a></li>
+
+            {% endif %}
+           
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <div class="hero">
+            {% if session.id_usuario %}
+            <form action="/medicionbase" method="POST">
+                {% if session.id_usuario %}
+                <div class="info">
+                    <h3 class="titulo1">Para obtener su medicion de pulso cardiaco pulse el siguiente boton:</h3>
+                    <div>
+                        <button class="btn2" id="submit" type="submit"  id="pulsoCardiacoBtn" onclick="startMeasurement('pulso')">Iniciar medición de Pulso Cardiaco</button>
+                    </div>
+                    <div>
+                        <h6 id="tiempo"></h6>
+                    </div>
+                </div>
+                <div class="info">
+                    <br>
+                    <p id="texto"> <b>NOTA:<br> Una vez presione el boton asegurese de tener su dedo sobre el sensor  y espere 30 segundos</p></b>
+                    <br>
+                    <p id="texto">¿Sabías qué?</p>
+                    <ul>
+                        <li>BPM por sus siglas en ingles significa "Beats For Minutes" que en español se traduce como "Latidos por
+                            minuto".</li>
+                        <li>El latido de una persona sana en reposo ronda entre los 60 a 100 bpms</li>
+                        <li>Un latido mayor a 100 bpm es sintoma de una enfermedad cardiaca</li>
+                    </ul>
+                </div>
+                {% else %}
+                <div>
+                    <h2>Para poder tomar su medicion debe de iniciar sesion</h2>
+                </div>
+                {% endif %}
+            </form>
+            
+            <form action="/medicionbase1" method="POST">
+                {% if session.id_usuario %}
+                <div class="info">
+                    <h3 class="titulo1">Para obtener su medicion de Oxigenación Sanguinea pulse el siguiente boton:</h3>
+                    <div>
+                        <button class="btn2" id="submit" type="submit">Iniciar medición de Oxigenación Sanguinea</button>
+                    </div>
+                    <div>
+                        <h6 id="tiempo"></h6>
+                    </div>
+                </div>
+                <div class="info">
+                    <br>
+                    <p id="texto"> <b>NOTA:<br> Una vez presione el boton asegurese de tener su dedo sobre el sensor  y espere 30 segundos</p></b>
+                    <br>
+                    <p id="texto">¿Sabías qué?</p>
+                    <ul>
+                        <li>Valores normales: En una persona sana, los niveles normales de SpO2 suelen estar entre el 95% y el 100%.
+                            Valores por debajo del 90% pueden indicar una disminución significativa en ".</li>
+                        <li>La medición del SpO2 es especialmente útil para monitorear la salud respiratoria, detectar problemas de
+                            oxigenación y evaluar la gravedad de enfermedades respiratorias como la apnea del sueño</li>
+                        <li>El SpO2 también es relevante para deportistas que practican actividades a gran altitud, ya que la
+                            disponibilidad de oxígeno puede disminuir en estas condiciones</li>
+                    </ul>
+                </div>
+                {% else %}
+                <div>
+                    <h2>Para poder tomar su medicion debe de iniciar sesion</h2>
+                </div>
+                {% endif %}
+            </form>
+            
+            {% else %}
+            <h2>Para poder tomar su medición, debe iniciar sesión.</h2>
+            {% endif %}
+        </div>
+    </div>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-{{ messages[0][0] }}">
+      {{ messages[0][1] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+    {% if success %}
+<script>
+    Swal.fire({
+        "title": "{{success}}",
+        "icon": "success"
+    })
+</script>
+{% endif %}
+{% if alert %}
+<script>
+    Swal.fire({
+        "title": "{{alert}}",
+        "icon": "error"
+    })
+</script>
+{% endif %}
+
+<script>
+    function startMeasurement(type) {
+        var button = null;
+        var message = null;
+
+        if (type === 'pulso') {
+            button = document.getElementById('pulsoCardiacoBtn');
+            message = 'Iniciando medición de pulso cardiaco...';
+        } else if (type === 'spo2') {
+            button = document.getElementById('spo2Btn');
+            message = 'Iniciando medición de oxigenación sanguínea...';
+        }
+
+        button.disabled = true; // Deshabilitar el botón durante la medición
+
+        // Mostrar el mensaje de carga
+        var messageDiv = document.getElementById('message');
+        messageDiv.innerHTML = message;
+        messageDiv.style.display = 'block';
+
+        // Realizar alguna acción aquí, como realizar una petición AJAX al servidor para iniciar la medición
+
+        // Simular una demora de 2 segundos para mostrar el mensaje de éxito
+        setTimeout(function() {
+            messageDiv.innerHTML = 'Medición completada con éxito.';
+            button.disabled = false; // Habilitar el botón después de la medición
+        }, 2000);
+    }
+</script>
+</body>

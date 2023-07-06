@@ -1,0 +1,105 @@
+body {
+    background: #fff;
+    font-family: 'Nunito';
+}
+.divlog{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 400px;
+    padding-top: 100px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #8EABFA;
+    box-shadow: 0 15px 52px rgba(78, 129, 238, 0.7);
+    border-radius: 10px;
+ 
+}
+
+
+.divlog h2{
+    margin: 0 0 30px;
+    padding: 0;
+    color: #000;
+    text-align: center;
+}
+
+.divlog .divlog2 label{
+    position: relative;
+    left: 0;
+    top: 0px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.divlog .divlog2 input{
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+
+}
+
+.divlog .divlog2 input:focus-label,
+.divlog .divlog2 input:valid-label{
+    top: -85px;
+    left: 0;
+    color: #ecc57c;
+    font-size: 12px;
+}
+#submit{
+    padding: 10px 20px;
+    color: red;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    border: 1px solid #e9a926;
+    margin: auto;
+}
+
+#submit:hover {
+    background: #e9a916;
+    color: beige;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #e9a916,
+    0 0 25px #e9a916, 0 0 50px #e9a916,
+            0 0 100px #e9a916;
+}
+.boton1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+#registro{
+    font-size: 14px;
+    text-decoration: none;
+    color: #dbd1db;
+    margin: auto;
+    width: 60%;
+    text-align: center;
+}
+
+.reg{
+    margin: auto;
+    color: #000 ;
+    text-decoration: none;
+}
+
+.p_registro {
+    font-family: 'Nunito';
+    margin: auto;
+    color: #000 ;
+    text-decoration: none;
+}

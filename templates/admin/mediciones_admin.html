@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>👩‍💻Transistor | inicio </title>
+</head>
+
+<body>
+
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="/" class="texto">
+            <img class="imagen" alt="medicion de pulso cardiaco MMP " src="static/frecuencia-cardiaca.png">
+            MMP
+
+        </a>
+       
+        <ul>
+            <li><a href="/editar">Usuarios</a></li>
+            <li><a href="/MedicionadminPulso">Mediciones de pulso</a></li>
+            <li><a href="/MedicionadminSpo2">Mediciones de spo2</a></li>
+            <li><a href="/cerrar"> Cerrar Sesión </a></li>
+           
+        </ul>
+    </nav>
+
+    <div class="caja">
+        <div class="nombre_MMP">
+            <h1> <p>M</p>onitoreo <p>M</p>edico <p>P</p>ersonal</h1>
+        </div>
+
+        <img src="static/frecuencia-cardiaca.png" alt="frecuencia cardiaca y oxigenacion de la sangre" class="imagen2">
+        
+    </div>
+ 
+
+{% if success %}
+<script>
+    Swal.fire({
+        "title": "{{success}}",
+        "icon": "success"
+    })
+</script>
+{% endif %}
+{% if alert %}
+<script>
+    Swal.fire({
+        "title": "{{alert}}",
+        "icon": "error"
+    })
+</script>
+{% endif %}
+{% block body %}
+{% endblock %}
+</body>
+
+</html>

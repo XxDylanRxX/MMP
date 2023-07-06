@@ -1,0 +1,112 @@
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .med {
+      padding-top: 50px;
+    }
+    .info {
+      margin: 10px;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .titulo1 {
+      font-size: 25px;
+    }
+    .texto {
+      font-size: 16px;
+    }
+  }
+  
+  /* Estilos generales */
+  .med {
+    padding-top: 150px;
+  }
+  
+  .info {
+    margin: 10px;
+    margin-right: 350px;
+    margin-left: 350px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(0, 10, 250, 0.19);
+    margin-top: 20px; /* Agrega este estilo para evitar que el navbar tape la información */
+  }
+  
+  .texto {
+    color: black;
+    font-family: Arial;
+    font-size: 20px;
+  }
+  
+  .titulo1 {
+    text-align: center;
+    font-family: "Comic Sans MS";
+    font-size: 35px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+  
+  .logop {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 0.75rem #1cb2b1);
+    transition: all 0.3s;
+  }
+  
+  .logop:hover {
+    transform: scale(1.1);
+  }
+  
+  #l_nombre {
+    margin-top: 1px;
+    text-align: center;
+    font-family: Georgia;
+    font-size: 60px;
+    color: #1cb2b1;
+    filter: drop-shadow(0 0 0.75rem #1cb2b1);
+  }
+  
+  .wrapper {
+    min-height: 100%;
+    position: relative;
+    padding-top: 125px;
+  }
+  
+  .footer {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    /* Estilos adicionales que desees aplicar */
+  }
+  
+  .sticky-footer {
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* Estilos para los botones */
+  .btn2 {
+    display: inline-block;
+    background-color: #1cb2b1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .btn2:hover {
+    background-color: #117f7e;
+  }
+  
+  .btn2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -1,0 +1,101 @@
+/* Estilos generales */
+
+/* Estilos del contenedor principal */
+.container {
+  margin-top: 105px; /* Altura del navbar */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos de la tabla responsiva */
+.responsive-table {
+  margin: 0 auto; /* Centrar la tabla horizontalmente */
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.responsive-table th {
+  background-color: #f2f2f2;
+}
+
+/* Media query para hacer la tabla responsiva */
+@media (max-width: 768px) {
+  .responsive-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    min-width: 100px;
+  }
+}
+
+title {
+  text-align: center;
+  margin-top: 50px;
+}
+.download {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.download-link {
+  display: inline-block;
+  background-color: #15BBDF;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.download-link:hover {
+  background-color: #0B8DA8;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.table-wrapper {
+  flex-basis: 49%;
+  margin-bottom: 20px;
+}
+
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.responsive-table .header,
+.responsive-table .footer {
+  font-weight: bold;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+  }
+
+  .table-wrapper {
+      flex-basis: 100%;
+  }
+}
